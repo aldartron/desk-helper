@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DeskHelper</title>
+    <script src="../../../assets/js/jquery-3.2.1.min.js"></script>
+    <script src="../../../assets/js/tether.min.js"></script>
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css"/>     <link rel="stylesheet" href="../../../assets/css/bootstrap-grid.min.css"/>
+    <link rel="stylesheet" href="../../../assets/css/bootstrap-reboot.min.css"/>
+    <script src="../../../assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../../assets/css/master.css"/>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-toggleable-md fixed-top navbar-light" id="">
+            
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>  
+            
+            <a class="navbar-brand" href="#">DeskHelper</a>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Архив заявок</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Новая заявка</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Контакты</a>
+                    </li>  
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Помощь</a>
+                    </li>   
+                </ul>
+            
+                <button id="btn-logout" class=" my-2 my-lg-0 btn btn-warning" type="submit">Выход</button>
+            </div>            
+        </nav>       
+    </header>
+    <section class="main row">
+    
+        <div class="col-lg-3 col-md-4 col-sm-12 info" id="sideInfo">
+            <h3>Шойдоков Алдар</h3>
+            <hr/>
+            <em>Министерство Территориального Развития</em>
+            <hr/>
+            <button type="button" class="btn btn-outline-primary btn-block">Составить новую заявку</button>
+            <hr/>
+            <h5>Администраторы:</h5>
+            <hr/>
+            <p>
+                Иванов Сергей <br/>
+                <small>+7 925 777 11 22</small> <br/>
+                <small>admin@admin.ru</small>
+            </p>
+            <p>
+                Иванов Сергей <br/>
+                <small>+7 925 777 11 22</small> <br/>
+                <small>admin@admin.ru</small>
+            </p>
+            <p>
+                Иванов Сергей <br/>
+                <small>+7 925 777 11 22</small> <br/>
+                <small>admin@admin.ru</small>
+            </p>
+            <hr/>
+        </div>
+        
+        <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12" id="userPanel">
+            
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Обновления</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">В ожидании</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">В работе</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Выполнено</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Отклонено</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Заморожено</a>
+                </li>
+            </ul>
+            
+            <div class="col-md-12" id="issueList">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-danger">
+                        <div class="d-flex w-100 justify-content-between">
+                            <p>H34DF80D: Компьютер включается не с первого раза и сильно шумит</p>
+                            <small class="date">
+                                Опубликовано: 25.06.2017 <br/>
+                                Обновление: 07.07.2017
+                            </small>
+                        </div>
+                        <small>
+                            Администратор: Иванов Сергей <br/>
+                            Статус: отклонено
+                        </small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <p>H34DF80D: Периодически перезагружается компьютер</p>
+                            <small class="date">
+                                Опубликовано: 25.06.2017 <br/>
+                                Обновление: 07.07.2017
+                            </small>
+                        </div>
+                        <small>Администратор: Иванов Сергей</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <p>H34DF80D: Периодически перезагружается компьютер</p>
+                            <small class="date">
+                                Опубликовано: 25.06.2017 <br/>
+                                Обновление: 07.07.2017
+                            </small>
+                        </div>
+                        <small>Администратор: Иванов Сергей</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <p>H34DF80D: Периодически перезагружается компьютер</p>
+                            <small class="date">
+                                Опубликовано: 25.06.2017 <br/>
+                                Обновление: 07.07.2017
+                            </small>
+                        </div>
+                        <small>Администратор: Иванов Сергей</small>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+        
+    </section>       
+</body>
+</html>

@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Cuprum|Open+Sans');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+header nav {
+    background-color:darkseagreen;
+}
+
+#login_panel {
+    margin-top: 64px;
+    text-align: center;
+    min-height: 80vh;
+}
+
+.form-group {
+    margin-left: 36px;
+    margin-right: 36px;
+}
+
+button#btn-login {
+    margin: 24px;
+}
+
+section.main {
+    margin-top: 55px;
+    margin-right: 0px;
+}
+
+div#sideInfo {
+    padding: 32px;
+    padding-left: 48px;
+    min-height: 94vh;
+    background-color: #F2F2F2
+}
+
+div#userPanel {
+    background-color: white;
+    padding: 0px;
+    border-left: 1px solid #DADADA
+}
+
+ul.nav-tabs {
+    background-color: whitesmoke;
+}
+
+div#issueList {
+    padding: 0px;
+/*    border-left: 1px solid #D6D6D6;*/
+}
+
+.date {
+    padding-right: 12px;
+}
+
+form#newIssue, form#newMessage {
+    padding: 36px 12px;
+}
+
+div.header {
+    padding: 4px 36px;
+}
+
+#statusChanger {
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+div.search-panel {
+    margin-top: 16px;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+table#searchList {
+    margin-top: 16px;
+}
+
+div.stat {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+footer {
+    height: 48px;
+    border-top: 1px solid #D6D6D6;
+    text-align: center;
+    padding-top: 8px;
+}
+
+img.screenshot {
+    margin-top: 16px;
+    width: 70vw;
+    border: 1px solid #D6D6D6;
+}
+
+.static {
+    padding-top: 36px;
+    border-left: 1px solid #DADADA
+}
+
+div.info_block {
+    padding-left: 36px;
+}
