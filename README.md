@@ -7,8 +7,8 @@ System of registration and support of computer-issue applications (Codeigniter 3
 
 Использовались: CodeIgniter 3.1.4, Bootstrap 4 alpha
 
-Логины пользователей: user[1-4] 
-Пароли: user[1-4]pass
+Логины пользователей: useruser[1-3] 
+Пароли: userpass
 
-Логины администраторов: admin[1-2]
+Логины администраторов: adminadmin[1-2]
 Пароль: adminpass
