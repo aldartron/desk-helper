@@ -35,8 +35,9 @@ class Issues_model extends CI_Model {
     public function get_issue($id)
     {
         $query = $this->db->query(
-            "SELECT *, issues.image, issues.info AS 'issueInfo', issues.id AS 'issueID', issues.status_id AS 'statusID', statuses.name AS 'status', statuses.info AS 'status_info' 
-            FROM issues LEFT JOIN statuses ON issues.status_id = statuses.id
+            "SELECT *,users.name AS 'userName', users.surename AS 'userSurename', issues.image, issues.info AS 'issueInfo', issues.id AS 'issueID', issues.status_id AS 'statusID', statuses.name AS 'status', statuses.info AS 'status_info' 
+            FROM issues LEFT JOIN statuses ON issues.status_id = statuses.id 
+            INNER JOIN users ON issues.user_id = users.login 
             WHERE issues.id = $id"
         );
 
@@ -78,11 +79,12 @@ class Issues_model extends CI_Model {
 
     public function get_issues_by_search($input, $from)
     {
-        $sql = 'SELECT issues.hash, issues.admin_id, issues.publicated, issues.edited, issues.short_info, issues.info AS "issueInfo",
+        $sql = 'SELECT issues.hash, issues.user_id, issues.admin_id, issues.publicated, issues.edited, issues.short_info, issues.info AS "issueInfo",
                 issues.id AS "issueID", issues.status_id AS "statusID", statuses.name AS "status",
-                statuses.info AS "status_info" 
-                FROM issues 
-                LEFT JOIN statuses ON issues.status_id = statuses.id';
+                statuses.info AS "status_info", 
+                COUNT(messages.id) AS "mesCount" 
+                FROM issues LEFT JOIN messages ON issues.id = messages.issue_id 
+                LEFT JOIN statuses ON issues.status_id = statuses.id ';
 
             // Админ или юзер
              if (!$_SESSION['user']->is_admin)
@@ -93,8 +95,10 @@ class Issues_model extends CI_Model {
 
         // Поиск по строке
         $sql .= ' AND LOWER(CONCAT(issues.hash, issues.short_info, issues.info)) LIKE "%'.strtolower($input['str']).'%"';
+        // Выбор пользователя
+        if (!empty($input['user']) and $_SESSION['user']->is_admin) $sql .= ' AND issues.user_id = "'.$input['user'].'"';
         // Выбор администратора
-        if (!empty($input['admin'])) $sql .= ' AND issues.admin_id = "'.$input['admin'].'"';
+        if (!empty($input['user']) and !$_SESSION['user']->is_admin) $sql .= ' AND issues.admin_id = "'.$input['user'].'"';
         // Выбранные статусы
         if (!empty($input['statuses'])) {
             $sql .= ' AND issues.status_id IN (';
@@ -103,6 +107,8 @@ class Issues_model extends CI_Model {
             $sql = rtrim($sql, ', ');
             $sql .= ')';
         }
+
+        $sql .= " GROUP BY issues.id ";
         // Сортировка
         $sql .= " ORDER BY issues.".($input['sort'] == 'short_info' ? strtolower($input['sort']) : $input['sort'])." ".(isset($_SESSION['desc']) ? 'DESC ' : '')."LIMIT $from, 20";
 

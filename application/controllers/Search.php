@@ -23,7 +23,7 @@ class Search extends My_Controller {
 
         $input = array(
             'str' => $this->input->post('str'),
-            'admin' => $this->input->post('admin'),
+            'user' => $this->input->post('user'),
             'sort' => empty($this->input->post('sort')) ? 'edited' : $this->input->post('sort'),
             'statuses' => $statuses
         );
@@ -31,7 +31,7 @@ class Search extends My_Controller {
         $data['issues'] = $this->issues_model->get_issues_by_search($input, $from);
         $data['user'] = $this->users_model->get_user($_SESSION['user']->login);
         $data['users'] = $this->users_model->get_users_by_admin($_SESSION['user']->login);
-        $data['admins'] = $this->users_model->get_admins($data['user']['orgID']);
+        $data['admins'] = $this->users_model->get_admins_by_org($data['user']['orgID']);
         $data['statuses'] = $this->statuses_model->get_statuses();
         $data['title'] = 'Поиск';
         $data['input'] = $input;

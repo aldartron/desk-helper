@@ -16,14 +16,22 @@
                 else if ($issue['statusID'] == 5) echo 'text-danger'
 
                     ?>"> <?php echo $issue['status'] ?> </span></small> <br/>
-            <small>Администратор:
-                <?php  foreach ($admins AS $admin) {
-                    if ($admin['login'] == $issue['admin_id']) {
-                        echo $admin['name'].' '.$admin['surename'];
-                        break;
-                    }
-                }?>
-            </small>
+
+            <?php if (!$user['is_admin']): ?>
+                <small>Администратор:
+                    <?php  foreach ($admins AS $admin) {
+                        if ($admin['login'] == $issue['admin_id']) {
+                            echo $admin['name'].' '.$admin['surename'];
+                            break;
+                        }
+                    }?>
+                </small>
+            <?php else: ?>
+                <small>Пользователь:
+                    <?php echo $issue['userName'].' '.$issue['userSurename'] ?>
+                </small>
+            <?php endif ?>
+
             <hr>
             <div class="form-group" id="statusChanger">
 

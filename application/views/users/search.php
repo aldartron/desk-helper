@@ -16,7 +16,7 @@
             <div class="col-md-4">
                 <div class="input-group">
                     <span class="input-group-addon">Администратор</span>
-                    <select class="form-control" name="admin" id="exampleSelect1">
+                    <select class="form-control" name="user">
                         <option <?php if ($input['admin'] == '') echo 'selected="selected" '?> value="">Любой</option>
                         <?php foreach ($admins AS $admin): ?>
                             <option <?php if ($input['admin'] == $admin['login']) echo 'selected="selected" '?> value="<?php echo $admin['login'] ?>">
@@ -32,11 +32,11 @@
                 <div class="col-md-4">
                     <div class="input-group">
                         <span class="input-group-addon">Пользователь</span>
-                        <select class="form-control" name="admin" id="exampleSelect1">
+                        <select class="form-control" name="user">
                             <option <?php if ($input['user'] == '') echo 'selected="selected" '?> value="">Любой</option>
                             <?php foreach ($users AS $usr): ?>
-                                <option <?php if ($input['user'] == $use['login']) echo 'selected="selected" '?> value="<?php echo $usr['login'] ?>">
-                                    <?php echo $usr['name'].' '.$usr['surename'].' ('.$usr['userInfo'].')'?>
+                                <option <?php if ($input['user'] == $user['login']) echo 'selected="selected" '?> value="<?php echo $usr['login'] ?>">
+                                    <?php echo $usr['name'].' '.$usr['surename'].' ('.$usr['info'].')'?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
@@ -105,6 +105,8 @@
                 <tr onclick="window.open('/issues/<?php echo $issue['issueID']?>', '_blank');">
                     <td><?php echo $issue['hash'] ?></td>
                     <td><?php echo $issue['short_info'] ?></td>
+
+                    <?php if (!$_SESSION['user']->is_admin): ?>
                     <td><?php
                         foreach ($admins AS $admin) {
                             if ($admin['login'] == $issue['admin_id']) {
@@ -114,10 +116,22 @@
                         }
                         ?>
                     </td>
+                    <?php else: ?>
+                    <td><?php
+                        foreach ($users AS $usr) {
+                            if ($usr['login'] == $issue['user_id']) {
+                                echo $usr['name'].' '.$usr['surename'];
+                                break;
+                            }
+                        }
+                        ?>
+                    </td>
+                    <?php endif ?>
+
                     <td><?php echo date('d.m.Y H:i', strtotime($issue['publicated'])) ?></td>
                     <td><?php echo date('d.m.Y H:i', strtotime($issue['edited'])) ?></td>
                     <td><?php echo $issue['status'] ?></td>
-                    <td>12</td>
+                    <td><?php echo $issue['mesCount'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
