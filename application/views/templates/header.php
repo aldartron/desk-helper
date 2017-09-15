@@ -27,7 +27,7 @@
                 </li>
             </ul>
 
-            <a href="login/logout" class="btn btn-warning my-2 my-lg-0" role="button">Выход</a>
+            <a href="<?php echo base_url('login/logout')?>" class="btn btn-warning my-2 my-lg-0" role="button">Выход</a>
         </div>
     </nav>
 </header>

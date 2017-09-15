@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '127.0.0.1',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'deskhelper',
+	'hostname' => 'localhost',
+	'username' => 'u26878_aldartron',
+	'password' => '0xAlpha',
+	'database' => 'u26878_deskhelper',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

@@ -1,6 +1,6 @@
 <?php
 
-class Statuses extends My_Controller {
+class Statuses extends MY_Controller {
 
     public function __construct()
     {

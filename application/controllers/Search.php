@@ -1,6 +1,6 @@
 <?php
 
-class Search extends My_Controller {
+class Search extends MY_Controller {
 
     public function __construct()
     {
@@ -22,6 +22,7 @@ class Search extends My_Controller {
         }
 
         $input = array(
+            'admin' => $this->input->post('admin'),
             'str' => $this->input->post('str'),
             'user' => $this->input->post('user'),
             'sort' => empty($this->input->post('sort')) ? 'edited' : $this->input->post('sort'),

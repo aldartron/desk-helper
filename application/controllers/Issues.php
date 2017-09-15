@@ -1,6 +1,6 @@
 <?php
 
-class Issues extends My_Controller {
+class Issues extends MY_Controller {
 
     public function __construct()
     {
@@ -16,7 +16,7 @@ class Issues extends My_Controller {
     {
         $data['title'] = 'Новая заявка';
         $data['user'] = $this->users_model->get_user($_SESSION['user']->login);
-        $data['admins'] = $this->users_model->get_admins( $data['user']['orgID']);
+        $data['admins'] = $this->users_model->get_admins_by_org( $data['user']['orgID']);
         $data['messages'] = $message;
 
         $this->load->view('templates/head', $data);
@@ -73,7 +73,7 @@ class Issues extends My_Controller {
         $data['issue'] = $this->issues_model->get_issue($id);
         $data['title'] = "Заявка ".$data['issue']['hash'];
         $data['user'] = $this->users_model->get_user($_SESSION['user']->login);
-        $data['admins'] = $this->users_model->get_admins($data['user']['orgID']);
+        $data['admins'] = $this->users_model->get_admins_by_org($data['user']['orgID']);
         $data['messages'] = $this->messages_model->get_messages($id);
         $data['buttons'] = $this->buttons->get_buttons($data['issue']);
 

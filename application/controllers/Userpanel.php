@@ -1,6 +1,6 @@
 <?php
 
-class Userpanel extends My_Controller {
+class Userpanel extends MY_Controller {
 
     public function __construct()
     {
@@ -18,7 +18,7 @@ class Userpanel extends My_Controller {
         $statusID = $this->input->get('status');
         $data['issues'] = $this->issues_model->get_issues($statusID, $from);
         $data['user'] = $this->users_model->get_user($_SESSION['user']->login);
-        $data['admins'] = $this->users_model->get_admins($data['user']['orgID']);
+        $data['admins'] = $this->users_model->get_admins_by_org($data['user']['orgID']);
         $data['statuses'] = $this->statuses_model->get_statuses();
         $data['status'] = $statusID;
         $data['title'] = 'DeskHelper';

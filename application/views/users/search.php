@@ -17,7 +17,7 @@
                 <div class="input-group">
                     <span class="input-group-addon">Администратор</span>
                     <select class="form-control" name="user">
-                        <option <?php if ($input['admin'] == '') echo 'selected="selected" '?> value="">Любой</option>
+                        <option <?php if ($input['user'] == '') echo 'selected="selected" '?> value="">Любой</option>
                         <?php foreach ($admins AS $admin): ?>
                             <option <?php if ($input['admin'] == $admin['login']) echo 'selected="selected" '?> value="<?php echo $admin['login'] ?>">
                                 <?php echo $admin['name'].' '.$admin['surename'].' ('.$admin['info'].')' ?>

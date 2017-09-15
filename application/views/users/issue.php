@@ -68,11 +68,11 @@
                                                 // И залогинен администратор
                                                 echo 'Вы: ';
                                             else
-                                                echo $message['admin']." ";
+                                                echo $message['admin'].": ";
                                         } else {
                                             // Автор - пользователь
                                             if ($_SESSION['user']->is_admin)
-                                                echo $message['name']." ";
+                                                echo $message['name'].": ";
                                             else
                                                 echo 'Вы: ';
                                         }

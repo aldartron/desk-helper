@@ -1,18 +1,18 @@
 <?php
 
-class Static_Page extends My_Controller {
+class Static_page extends MY_Controller {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model(array('users_model'));
+        $this->load->model('users_model');
     }
 
     public function contacts()
     {
         $data['title'] = 'Контакты';
         $data['user'] = $this->users_model->get_user($_SESSION['user']->login);
-        $data['admins'] = $this->users_model->get_admins($data['user']['orgID']);
+        $data['admins'] = $this->users_model->get_admins_by_org($data['user']['orgID']);
 
         // Compose the page
         $this->load->view('templates/head', $data);
@@ -26,7 +26,7 @@ class Static_Page extends My_Controller {
     {
         $data['title'] = "Справка";
         $data['user'] = $this->users_model->get_user($_SESSION['user']->login);
-        $data['admins'] = $this->users_model->get_admins($data['user']['orgID']);
+        $data['admins'] = $this->users_model->get_admins_by_org($data['user']['orgID']);
 
         $this->load->view('templates/head', $data);
         $this->load->view('templates/header');

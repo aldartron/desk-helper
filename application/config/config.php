@@ -24,7 +24,7 @@ date_default_timezone_set('Asia/Chita');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://desk-helper/';
+$config['base_url'] = 'http://u26878.onhh.ru/';
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +224,7 @@ $config['allow_get_array'] = TRUE;
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+$config['log_threshold'] = 1;
 
 /*
 |--------------------------------------------------------------------------
