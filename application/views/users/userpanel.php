@@ -51,7 +51,8 @@
                             Пользователь: <?php
                             foreach ($issues AS $is) {
                                 if ($is['login'] == $issue['user_id']) {
-                                    echo $is['userName'].' '.$is['userSurename']    ;
+                                    echo $is['userName'].' '.$is['userSurename'];
+                                    break;
                                 }
                             }
                             ?>
